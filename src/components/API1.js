@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import Student from './Student';
 
 const API1 = () => {
     const [data,setData] = useState(null);
@@ -13,12 +14,14 @@ const API1 = () => {
         })
         .catch((err) => console.log(err));
     }
-    getData();
+    useEffect (() => {
+        getData();
+    }, []);
     return (
         
         <div>
             <h1>Tìm hiểu API</h1>
-            {data && data.map((item, index) => <h1>{item.name}</h1>) }
+            {data && data.map((item, index) => <Student key = {index} student = {item}/> ) }
         </div>
     );
 }
