@@ -1,9 +1,10 @@
-import API1 from "./components/API1";
+import Weather from "./components/Weather";
+
 
 function App() {
   return (
     <div>
-      <API1 />
+      <Weather />
     </div>
   );
 }
