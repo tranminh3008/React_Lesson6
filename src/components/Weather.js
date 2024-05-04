@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import moment from 'moment';
 
-const Weather = () => {
+const Weather = (props) => {
     const [data, setData] = useState(null);
+    const [text, setText] = useState("");
+    const [today, setToday] = useState("");
     const date = moment().format("MMMM");
     const date2 = moment().format("Do");
     const current_day = { date2 };
     const day_name = "";
     const apikey = "94ce64967f2f5e7f6474badb45f42c36";
-    const text = "Ho Chi Minh";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=${apikey}`;
     switch (current_day) {
         case 0:
@@ -42,16 +43,25 @@ const Weather = () => {
             })
             .catch((err) => console.log(err));
     }
-    useEffect(() => {
-        getData();
-    }, [])
+    // useEffect(() => {
+    //     getData();
+    // }, [])
     return (
         <div>
+            <input
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => {
+                    if (e.key == "Enter") {
+                        getData();
+                    }
+                }} />
             {data && (
                 <>
                     <p className='name'>{data.name}</p>
-                    <p className='local'><i class="fa-solid fa-location-dot"></i>{data.name}</p>
-                    <p className='date'><i class="fa-solid fa-calendar-day"></i>{date} | {day_name}</p>
+                    <p className='local'><i className="fa-solid fa-location-dot"></i>{data.name}</p>
+                    <p className='date'><i className="fa-solid fa-calendar-day"></i>{date} |</p>
+                    <p className='today'></p>
                     <p className='weather'>{data.weather[0].description}</p>
                     <p className='local'>City: {data.name}</p>
                     <p className='temp'>Temp: {data.main.temp}</p>
