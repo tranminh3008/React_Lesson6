@@ -1,0 +1,79 @@
+.search {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  background: linear-gradient(
+    to bottom left,
+    rgb(108, 163, 226),
+    cyan,
+    rgb(108, 163, 226)
+  );
+  border-radius: 10px;
+  padding: 25px 20px;
+}
+input,
+button {
+  padding: 4px 12px;
+}
+input {
+  margin-right: 4px;
+  width: 100%;
+}
+img {
+  width: 200px;
+}
+.info {
+  text-align: center;
+  background: linear-gradient(
+    to bottom left,
+    cyan,
+    rgb(0, 183, 255),
+    rgb(108, 163, 226),
+    rgb(0, 183, 255),
+    cyan
+  );
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.name {
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+  margin: 20px 0;
+}
+.main {
+  display: flex;
+  align-items: center;
+  width: 400px;
+}
+.left {
+  width: 50%;
+  text-align: start;
+  font-weight: 400;
+  color: #fff;
+}
+.left .top p,
+.left .bottom p {
+  font-size: 18px;
+  margin: 8px 0;
+}
+.left .top i {
+  width: 14px;
+  margin-right: 8px;
+}
+.left .mid {
+  display: flex;
+}
+.left .mid p {
+  font-size: 24px;
+  font-weight: 600;
+  margin-right: 8px;
+}
+.left .bottom p:nth-child(1) {
+  font-size: 28px;
+  font-weight: 600;
+}
+.right {
+  width: 50%;
+}
